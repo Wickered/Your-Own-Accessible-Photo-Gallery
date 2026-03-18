@@ -1,29 +1,51 @@
-/*Name this external file gallery.css*/
-body{
-		margin: 2%;
-		border: 1px solid black;
-		background-color: #b3b3b3;
+body {
+    margin: 2%;
+    border: 1px solid black;
+    background-color: #b3b3b3;
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
-#image{
-    line-height:650px;
-		width: 575px;
+
+#image {
+    line-height: 650px;
+    width: 575px;
     height: 650px;
-		border:5px solid black;
-		margin:0 auto;
+    border: 5px solid black;
+    margin: 0 auto 25px auto;
     background-color: #8e68ff;
     background-image: url('');
     background-repeat: no-repeat;
-    color:#FFFFFF;
+    color: #FFFFFF;
     text-align: center;
-    background-size: 100%;
-    margin-bottom:25px;
+    background-size: cover;
+    background-position: center;
     font-size: 150%;
+    outline: none;
 }
-.preview{
-		width:10%;
-		margin-left:17%;
-    border: 10px solid black;
+
+#image:focus {
+    border-color: #ffcc00;
 }
-img{
-		width:95%;
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.preview {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid black;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.preview:hover,
+.preview:focus {
+    transform: scale(1.05);
+    border-color: #ffcc00;
+    outline: none;
 }
