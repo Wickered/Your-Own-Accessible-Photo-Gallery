@@ -1,31 +1,37 @@
 /*Name this external file gallery.js*/
 
-function upDate(previewPic) {
-  /* In this function you should 
-     1) change the url for the background image of the div with the id = "image" 
-     to the source file of the preview image
-     
-     2) Change the text of the div with the id = "image" 
-     to the alt text of the preview image 
-  */
+// Run when page loads
+window.onload = function() {
+    console.log("Page loaded — adding tabindex to images.");
+    addTabIndex();
+};
 
-  document.getElementById("image").style.backgroundImage =
-    "url('" + previewPic.src + "')";
-
-  document.getElementById("image").innerHTML = previewPic.alt;
+// Function to add tabindex to all preview images
+function addTabIndex() {
+    let images = document.querySelectorAll('.preview');
+    for (let i = 0; i < images.length; i++) {
+        images[i].setAttribute('tabindex', '0');
+    }
 }
 
+// Function called when mouse over or focus on an image
+function upDate(previewPic) {
+    console.log("upDate triggered — src:", previewPic.src, "alt:", previewPic.alt);
+
+    // Update background image
+    document.getElementById('image').style.backgroundImage = "url('" + previewPic.src + "')";
+
+    // Update text to alt
+    document.getElementById('image').innerHTML = previewPic.alt;
+}
+
+// Function called when mouse out or blur from an image
 function unDo() {
-  /* In this function you should 
-     1) Update the url for the background image of the div with the id = "image" 
-     back to the original image. You can use the css code to see what that original URL was
-     
-     2) Change the text of the div with the id = "image" 
-     back to the original text. You can use the html code to see what that original text was
-  */
+    console.log("unDo triggered — resetting to original");
 
-  document.getElementById("image").style.backgroundImage = "url('')";
+    // Reset background to empty URL (hardcoded)
+    document.getElementById('image').style.backgroundImage = "url('')";
 
-  document.getElementById("image").innerHTML =
-    "Hover over an image below to display here.";
+    // Reset text to original message (hardcoded)
+    document.getElementById('image').innerHTML = "Hover or focus on an image below to display here.";
 }
